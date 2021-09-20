@@ -1,9 +1,11 @@
-provider "ibm" {
-  region = var.ibm_region
-  ibmcloud_api_key = var.ibmcloud_api_key
-  version    = "1.17.02"
-}
-
 terraform {
-  required_version = "~> 0.13.0"
+  required_version = ">= 0.13.3"
+  required_providers {
+    ibm = {
+      source  = "ibm-cloud/ibm"
+      version = "=1.27.1"
+      region = var.ibm_region
+      ibmcloud_api_key = var.ibmcloud_api_key
+    }
+  }
 }
